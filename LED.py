@@ -14,7 +14,7 @@ def mapPixel(x, y):
 xres = 16
 yres = 16
 led = Pin(25, Pin.OUT) #25
-pixels = Neopixel(num_leds=(xres*yres), state_machine=0, pin=28, mode="RGB", delay=0.0001)
+strip = Neopixel(num_leds=(xres*yres), state_machine=0, pin=28, mode="RGB", delay=0.0001)
 
 led.value(1)
 import os
@@ -25,7 +25,7 @@ for item in os.listdir():
         print("Skip", item)
 
 numpix = 60
-strip = Neopixel(num_leds=(xres*yres), state_machine=0, pin=28, mode="RGB", delay=0.0001)
+
 # strip = Neopixel(numpix, 0, 0, "GRBW")
 
 red = (255, 0, 0)
@@ -330,7 +330,7 @@ mat = [[0.0,0.2823529541492462,0.08627451211214066,],
         [0.2980392277240753,0.15294118225574493,0.03529411926865578,],]
 
 for i in range((xres*yres)):
-    strip.set_pixel(i, mat[i], 255)
+    strip.set_pixel(i, mat[i]*255, 255)
 
 strip.show()
 time.sleep(1)
