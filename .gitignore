@@ -132,3 +132,4 @@ dmypy.json
 # Additional ignores
 /Dependancies
 .vscode
+PicoProject.code-workspace
